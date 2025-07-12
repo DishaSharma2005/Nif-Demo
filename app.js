@@ -8,6 +8,9 @@ const sampleData = require("./init/data");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("connect-flash");
+const dbUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/nif-demo";
+require("dotenv").config();
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -36,14 +39,25 @@ app.use((req, res, next) => {
 });
 
 // ✅ Connect Mongo
-async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/nif-demo');
-}
-main().then(() => {
-    console.log("connected to DB");
+// async function main() {
+//     await mongoose.connect('mongodb://127.0.0.1:27017/nif-demo');
+// }
+// main().then(() => {
+//     console.log("connected to DB");
+// }).catch((err) => {
+//     console.log(err);
+// });
+
+
+mongoose.connect(dbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log("✅ MongoDB connected");
 }).catch((err) => {
-    console.log(err);
+  console.error("❌ MongoDB connection error:", err);
 });
+
 
 
 app.get("/", async (req, res) => {
@@ -129,7 +143,7 @@ app.get('/search', async (req, res) => {
     res.status(500).json({ error: "Search failed" });
   }
 });
-
+ 
 
 
 app.listen(3000, () => {
