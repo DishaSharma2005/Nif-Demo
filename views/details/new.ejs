@@ -1,0 +1,89 @@
+<%= layout("/layouts/boilerplate") %>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br><br>
+      <h2>Create a New Innovator Entry</h2>
+
+      <% let flashErrors = locals.error || []; %>
+      <% flashErrors.forEach(errMsg => { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= errMsg %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }) %>
+
+      <form method="POST" action="/innovators"  class="needs-validation">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input name="innovator[name]" placeholder="Enter innovator name" type="text" class="form-control" required>
+          <div class="invalid-feedback">Please enter a name.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Gender</label>
+          <select name="innovator[gender]" class="form-select" required>
+            <option value="">Choose...</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+          </select>
+          <div class="invalid-feedback">Please select gender.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Innovation</label>
+          <input name="innovator[innovation]" placeholder="Enter innovation title" type="text" class="form-control" required>
+          <div class="invalid-feedback">Please enter a innovation.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Scheme</label>
+          <input name="innovator[scheme]" placeholder="Enter scheme" type="text" class="form-control">
+          <div class="invalid-feedback">Please enter a scheme.</div>
+          
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">State</label>
+          <input name="innovator[state]" placeholder="Enter state" type="text" class="form-control" >
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Application Number</label>
+          <input name="innovator[applicationNumber]" placeholder="Enter application number" type="text" class="form-control" required>
+           <div class="invalid-feedback">Please enter a application number.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Priority Date</label>
+          <input name="innovator[priorityDate]" type="date" class="form-control" >
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Status</label>
+          <input name="innovator[status]" placeholder="Enter status" type="text" class="form-control" >
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Patent No. (optional)</label>
+          <input name="innovator[patentNo]" placeholder="Patent number (if granted)" type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Date of Grant (optional)</label>
+          <input name="innovator[dateOfGrant]" type="date" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Filed Through</label>
+          <input name="innovator[filedThrough]" placeholder="Filed through" type="text" class="form-control" >
+        </div>
+
+        <br>
+        <button class="btn btn-dark">Add</button>
+        <br><br>
+      </form>
+    </div>
+  </div>
+</body>

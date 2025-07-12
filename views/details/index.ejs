@@ -1,0 +1,48 @@
+<%= layout("/layouts/boilerplate")%>
+
+<div class="container mt-5">
+  <h1 class="mb-4">All Innovators</h1>
+
+  <table class="table table-bordered table-striped" id="dataTable">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Innovation</th>
+        <th>Scheme</th>
+        <th>State</th>
+        <th>Application No.</th>
+        <th>Priority Date</th>
+        <th>Status</th>
+        <th>Patent No.</th>
+        <th>Date of Grant</th>
+        <th>Filed Through</th>
+        <th>Edit</th>           <!-- ✅ Add this -->
+        <th>Delete</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((item) => { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.gender %></td>
+          <td><%= item.innovation %></td>
+          <td><%= item.scheme %></td>
+          <td><%= item.state %></td>
+          <td><%= item.applicationNumber %></td>
+          <td><%= item.priorityDate %></td>
+          <td><%= item.status %></td>
+          <td><%= item.patentNo || '-' %></td>
+          <td><%= item.dateOfGrant || '-' %></td>
+          <td><%= item.filedThrough %></td>
+          <td> <a href="/innovators/<%= item._id %>/edit" class="btn btn-sm btn-warning no-highlight">Edit</a></td>
+          <td><form action="/innovators/<%= item._id %>?_method=DELETE" method="POST" class="no-highlight" onsubmit="return confirm('Are you sure you want to delete this entry?');">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+          </td>
+
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

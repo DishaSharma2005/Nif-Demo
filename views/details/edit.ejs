@@ -1,0 +1,82 @@
+<%= layout("/layouts/boilerplate") %>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br><br>
+      <h2>Edit Innovator Entry</h2>
+
+      <% let flashErrors = locals.error || []; %>
+      <% flashErrors.forEach(errMsg => { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= errMsg %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }) %>
+
+      <form method="POST" action="/innovators/<%= innovator._id %>?_method=PUT" novalidate class="needs-validation">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input name="innovator[name]" type="text" class="form-control" required value="<%= innovator.name %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Gender</label>
+          <select name="innovator[gender]" class="form-select" required>
+            <option value="M" <%= innovator.gender === "M" ? "selected" : "" %>>Male</option>
+            <option value="F" <%= innovator.gender === "F" ? "selected" : "" %>>Female</option>
+            <option value="O" <%= innovator.gender === "O" ? "selected" : "" %>>Other</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Innovation</label>
+          <input name="innovator[innovation]" type="text" class="form-control" required value="<%= innovator.innovation %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Scheme</label>
+          <input name="innovator[scheme]" type="text" class="form-control" required value="<%= innovator.scheme %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">State</label>
+          <input name="innovator[state]" type="text" class="form-control" required value="<%= innovator.state %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Application Number</label>
+          <input name="innovator[applicationNumber]" type="text" class="form-control" required value="<%= innovator.applicationNumber %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Priority Date</label>
+          <input name="innovator[priorityDate]" type="date" class="form-control" required value="<%= innovator.priorityDate %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Status</label>
+          <input name="innovator[status]" type="text" class="form-control" required value="<%= innovator.status %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Patent No. (optional)</label>
+          <input name="innovator[patentNo]" type="text" class="form-control" value="<%= innovator.patentNo %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Date of Grant (optional)</label>
+          <input name="innovator[dateOfGrant]" type="date" class="form-control" value="<%= innovator.dateOfGrant %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Filed Through</label>
+          <input name="innovator[filedThrough]" type="text" class="form-control" required value="<%= innovator.filedThrough %>">
+        </div>
+
+        <br>
+        <button class="btn btn-primary">Update</button>
+        <br><br>
+      </form>
+    </div>
+  </div>
+</body>

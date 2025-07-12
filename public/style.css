@@ -1,0 +1,18 @@
+*{
+    font-family: "Plus Jakarta Sans", sans-serif !important ;
+}
+.Heading{
+    text-align: center !important;
+}
+.search{
+    width: 100% !important;
+}
+.navbar{
+    height:5rem;background-color: aliceblue;
+    
+}
+.mark {
+    background-color: #ffe066 !important;
+    padding: 0 2px !important;
+    border-radius: 2px !important;
+  }
