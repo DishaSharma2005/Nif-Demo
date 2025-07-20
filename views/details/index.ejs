@@ -2,7 +2,7 @@
 
 <div class="container mt-5">
   <h1 class="mb-4">All Innovators</h1>
-
+ <div class="table-responsive">
   <table class="table table-bordered table-striped" id="dataTable">
     <thead class="table-dark">
       <tr>
@@ -23,7 +23,7 @@
     </thead>
     <tbody>
       <% data.forEach((item) => { %>
-        <tr>
+        <tr id="row-<%= item._id %>">
           <td><%= item.name %></td>
           <td><%= item.gender %></td>
           <td><%= item.innovation %></td>
@@ -45,4 +45,5 @@
       <% }) %>
     </tbody>
   </table>
+  </div>
 </div>

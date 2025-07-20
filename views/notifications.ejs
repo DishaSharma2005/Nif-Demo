@@ -1,0 +1,49 @@
+<%= layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+  <h2 class="mb-4">🔔 Notifications</h2>
+
+  <% const hasNotifications = Object.values(groupedNotifications).some(group => group.length > 0); %>
+
+  <% if (!hasNotifications) { %>
+    <div class="alert alert-info">No notifications at the moment.</div>
+  <% } %>
+
+  <% if (groupedNotifications.pending.length) { %>
+    <h4>🟡 Pending</h4>
+    <% groupedNotifications.pending.forEach(note => { %>
+      <div class="alert alert-warning">
+        🔔 <a href="<%= note.link %>"><%= note.msg %></a>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <% if (groupedNotifications.hearing.length) { %>
+    <h4>🟠 Application in Hearing</h4>
+    <% groupedNotifications.hearing.forEach(note => { %>
+      <div class="alert alert-warning">
+        🔔 <a href="<%= note.link %>"><%= note.msg %></a>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <% if (groupedNotifications.psFiled.length) { %>
+    <h4>🔵 PS Filed</h4>
+    <% groupedNotifications.psFiled.forEach(note => { %>
+      <div class="alert alert-warning">
+        🔔 <a href="<%= note.link %>"><%= note.msg %></a>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <% if (groupedNotifications.annual.length) { %>
+    <h4>📅 Annual Reminder</h4>
+    <% groupedNotifications.annual.forEach(note => { %>
+      <div class="alert alert-success">
+        📅 <a href="<%= note.link %>"><%= note.msg %></a>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <a href="/" class="btn btn-primary mt-3">← Back to Home</a>
+</div>

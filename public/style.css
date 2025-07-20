@@ -8,7 +8,7 @@
     width: 100% !important;
 }
 .navbar{
-    height:5rem;background-color: aliceblue;
+    height:5rem;background-color: rgb(235, 241, 247);
     
 }
 .mark {
@@ -16,3 +16,21 @@
     padding: 0 2px !important;
     border-radius: 2px !important;
   }
+tr.flash-highlight td {
+  background-color: #ffe066 !important; /* a Bootstrap-style light yellow */
+}
+.footer {
+    border-top: 1px solid #ddd;
+  }
+
+.navbar-collapse {
+  background-color: white; /* base background */
+  z-index: 999;            /* make sure it's on top */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Optional: Add shadow to feel elevated */
+.navbar-collapse.show {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

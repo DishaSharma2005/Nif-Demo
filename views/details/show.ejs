@@ -1,0 +1,12 @@
+<%= layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+  <h2><%= innovator.name %></h2>
+  <p><strong>Gender:</strong> <%= innovator.gender %></p>
+  <p><strong>Status:</strong> <%= innovator.status %></p>
+  <p><strong>Date of Grant:</strong> <%= innovator.dateOfGrant %></p>
+  <p><strong>Application Number:</strong> <%= innovator.applicationNumber %></p>
+
+  <a href="/#row-<%= innovator._id %>" class="btn btn-primary mt-3">Go to Table Entry</a>
+  <a href="/notifications" class="btn btn-secondary mt-3 ms-2">← Back</a>
+</div>

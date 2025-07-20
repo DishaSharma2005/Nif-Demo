@@ -1,25 +1,43 @@
+
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/"><b>Home</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/details/new"><b>New Innovator</b></a>
+          <a class="nav-link" href="/details/new">
+            <b><span class="text-nowrap">New Innovator</span></b>
+          </a>
+   
         </li>
-       
       </ul>
-      <div class="col-md-3">
-         <form class="d-flex" role="search">
-        <input class="form-control flex-grow-1 me-2" type="search" placeholder="Search By Innovator Details"   id="searchInput" aria-label="Search"/>
-        <button class="btn btn-outline-success search" type="submit">Search</button>
-      </form>
-    </div>
-    </div>
+
+      
+<!-- Right section: Search + Bell (Fixed responsive alignment) -->
+<div class="d-flex flex-wrap align-items-center justify-content-start justify-content-md-end gap-2 w-100 mt-3 mt-md-0">
+  <form class="d-flex flex-grow-1 flex-md-grow-0" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search By Innovator Details" id="searchInput" aria-label="Search" />
+    <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+  </form>
+
+  <a href="/notifications" id="notifBell" class="position-relative">
+    🔔
+    <span id="notifDot"
+      class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle d-none"
+      style="font-size: 10px;"></span>
+  </a>
+</div>
+
+
   </div>
 </nav>

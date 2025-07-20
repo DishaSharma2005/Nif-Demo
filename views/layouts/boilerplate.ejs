@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NIF Assignment Task</title>
 
-  <!-- ✅ Your custom stylesheet (adjusted path) -->
+  <!-- ✅ Your custom stylesheet -->
   <link rel="stylesheet" href="/style.css" />
 
   <!-- ✅ Bootstrap CSS -->
@@ -17,23 +17,31 @@
   />
 </head>
 
-<body>
-  <!-- ✅ Navbar (shared) -->
+<body class="d-flex flex-column min-vh-100">
+  
+  <!-- ✅ Navbar -->
   <%- include("../navbar.ejs") %>
 
-  <!-- ✅ Main content area -->
-  <main class="container my-4">
+  <!-- ✅ Main content -->
+  <main class="container my-4 flex-grow-1">
     <h2 class="text-center mb-4">NIF Demo Assignment</h2>
     <%- body %>
   </main>
 
-  <!-- ✅ Bootstrap JS Bundle -->
+  <!-- ✅ Footer -->
+  <footer class="footer mt-auto py-3 bg-light text-center">
+    <div class="container">
+      <span class="text-muted">© Made by Disha</span>
+    </div>
+  </footer>
+
+  <!-- ✅ Bootstrap JS -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"
   ></script>
   <script src="/script.js"></script>
-  <h4>&copy;Made by Disha</h4>
+
 </body>
 </html>
