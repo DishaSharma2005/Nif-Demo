@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -11,7 +13,7 @@ const flash = require("connect-flash");
 
 const moment=require("moment");
 const dbUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/nif-demo";
-require("dotenv").config();
+
 
 
 app.set('view engine', 'ejs');
@@ -240,6 +242,6 @@ app.get("/api/notifications/latest", async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log("server is listening to port 3000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log("✅ Server is listening");
 });
